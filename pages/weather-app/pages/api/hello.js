@@ -1,5 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 export default function handler(req, res) {
-  res.status(200).json({ name: "John Doe" });
+  try {
+    return res.status(200).json({ name: "John Doe" });
+  } catch (error) {
+    console.error("API Error:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 }
